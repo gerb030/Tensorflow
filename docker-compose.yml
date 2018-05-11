@@ -1,0 +1,15 @@
+version: '3'
+services:
+  tf:
+    image: amaksimov/python_data_science
+    environment:
+      - DISPLAY=${HOSTNAME}:0
+    privileged: true
+    network_mode: "host"
+    ports:
+      - 8888:8888
+      - 6006:6006
+    volumes:
+      - ./notebooks:/notebooks
+      - "/tmp/.X11-unix:/tmp/.X11-unix"
+    container_name: tf4
